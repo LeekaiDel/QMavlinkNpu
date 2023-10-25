@@ -1,4 +1,0 @@
-/home/leekai/QMavlinkNpu/build/CMakeFiles/QMavlinkNpu.dir
-/home/leekai/QMavlinkNpu/build/CMakeFiles/edit_cache.dir
-/home/leekai/QMavlinkNpu/build/CMakeFiles/rebuild_cache.dir
-/home/leekai/QMavlinkNpu/build/CMakeFiles/QMavlinkNpu_autogen.dir
