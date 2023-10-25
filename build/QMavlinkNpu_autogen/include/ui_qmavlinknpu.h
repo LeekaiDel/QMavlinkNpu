@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'qmavlinknpu.ui'
 **
-** Created by: Qt User Interface Compiler version 5.15.3
+** Created by: Qt User Interface Compiler version 5.15.11
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -11,9 +11,11 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -22,6 +24,8 @@ class Ui_QMavlinkNpu
 {
 public:
     QWidget *centralwidget;
+    QVBoxLayout *verticalLayout;
+    QLabel *label;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -32,9 +36,17 @@ public:
         QMavlinkNpu->resize(800, 600);
         centralwidget = new QWidget(QMavlinkNpu);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        verticalLayout = new QVBoxLayout(centralwidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        label = new QLabel(centralwidget);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        verticalLayout->addWidget(label);
+
         QMavlinkNpu->setCentralWidget(centralwidget);
         menubar = new QMenuBar(QMavlinkNpu);
         menubar->setObjectName(QString::fromUtf8("menubar"));
+        menubar->setGeometry(QRect(0, 0, 800, 23));
         QMavlinkNpu->setMenuBar(menubar);
         statusbar = new QStatusBar(QMavlinkNpu);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -48,6 +60,7 @@ public:
     void retranslateUi(QMainWindow *QMavlinkNpu)
     {
         QMavlinkNpu->setWindowTitle(QCoreApplication::translate("QMavlinkNpu", "QMavlinkNpu", nullptr));
+        label->setText(QCoreApplication::translate("QMavlinkNpu", "HHHHHHHHH", nullptr));
     } // retranslateUi
 
 };
