@@ -14,9 +14,10 @@ QMavlinkNpu::QMavlinkNpu(QWidget *parent):
     if(connection_result != ConnectionResult::Success)
     {
         std::cout << "Connection failed: " << connection_result << std::endl;
-        // return;
     }
     else std::cout << "Connection success!" << std::endl;
+    
+    while(mavsdk.systems().size() == 0){} // Ждем когда появится хотя бы одна система 
     mavsdk.subscribe_on_new_system([](){
         cout << "Discovered new system\n";
     });
@@ -35,25 +36,15 @@ QMavlinkNpu::QMavlinkNpu(QWidget *parent):
     connect(main_timer, SIGNAL(timeout()), this, SLOT(updateTime()));
 
     main_timer->start();
-
-/*
-euler_angle:
-{
-    roll_deg: 0.921273708343506
-    pitch_deg: -0.0133227771148086
-    yaw_deg: -28.6466178894043
-    timestamp_us: 1030948000
-}
-*/
 }
 
 void QMavlinkNpu::updateTime()
 {
     ui->label->setText(QString::fromStdString
     (
-        "Roll: " + to_string(telemetry->attitude_euler().roll_deg)
-        + "\nPitch: " + to_string(telemetry->attitude_euler().pitch_deg)
-        + "\nYaw: " + to_string(telemetry->attitude_euler().yaw_deg)
+        "Roll angle: " + to_string(telemetry->attitude_euler().roll_deg) + "\n" + 
+        "Pitch angle: " + to_string(telemetry->attitude_euler().pitch_deg) + "\n" + 
+        "Yaw angle: " + to_string(telemetry->attitude_euler().yaw_deg)
     )
     );
 }
